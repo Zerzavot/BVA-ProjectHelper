@@ -53,7 +53,7 @@ class StdOutListener(StreamListener):
         
 
         producer.send(self.topic_name, data)
-        print(newdata)
+        print(data)
         #txt_name = folder+"/"+filename+".txt"
         #with open(txt_name, 'a') as f:
         #    f.write(data)
