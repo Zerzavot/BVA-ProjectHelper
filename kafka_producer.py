@@ -47,17 +47,17 @@ class StdOutListener(StreamListener):
         """ This method is called whenever new data arrives from live stream.
         We asynchronously push this data to kafka queue"""
 
-        folder = "data"
-        filename = "all_tweets"
+        # folder = "data"
+        # filename = "all_tweets"
         # newdata = cleantweet(data)
-        newdata = data
+        
 
-        producer.send(self.topic_name, newdata)
+        producer.send(self.topic_name, data)
         print(newdata)
-        txt_name = folder+"/"+filename+".txt"
-        with open(txt_name, 'a') as f:
-            f.write(newdata)
-            f.write('\n')
+        #txt_name = folder+"/"+filename+".txt"
+        #with open(txt_name, 'a') as f:
+        #    f.write(data)
+        #    f.write('\n')
         return True
 
     def on_error(self, status):
