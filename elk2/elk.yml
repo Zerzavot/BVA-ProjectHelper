@@ -8,9 +8,8 @@ services:
         source: ./elasticsearch/config/elasticsearch.yml
         target: /usr/share/elasticsearch/config/elasticsearch.yml
         read_only: true
-      - type: volume
-        source: elasticsearch
-        target: /usr/share/elasticsearch/data
+        # mkdir /home/ubuntu/elastic && chown -R 1000:1000 /home/ubuntu/elastic
+      - /home/ubuntu/elastic/data:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
